@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProjectStore.Domain.Entities
 {
-    namespace ProjectStore.Domain.Entities
+    public class Client
     {
-        public class Client
-        {
-            public int Id { get; set; }
-            public string Nome { get; set; }
-            public string Email { get; set; }
-            public string Telefone { get; set; }
-            public DateTime DataCadastro { get; set; }
-        }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+        public DateTime RegistrationDate { get; set; }
     }
 }

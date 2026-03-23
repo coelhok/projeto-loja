@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectStore.Domain\ProjectStore.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
