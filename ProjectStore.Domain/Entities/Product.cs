@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ProjectStore.Domain.Entities
+{
+    namespace ProjectStore.Domain.Entities
+    {
+        public class Product
+        {
+            public int Id { get; set; }
+            public string Nome { get; set; }
+            public string Descricao { get; set; }
+            public decimal Preco { get; set; }
+            public int QuantidadeEstoque { get; set; }
+        }
+    }
+}

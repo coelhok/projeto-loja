@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ProjectStore.Domain/ProjectStore.Domain.csproj" />
+  <Project Path="ProjectStore.Infrastructure/ProjectStore.Infrastructure.csproj" />
+  <Project Path="ProjectStore/ProjectStore.csproj" />
+</Solution>
