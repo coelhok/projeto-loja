@@ -9,10 +9,10 @@ namespace ProjectStore.Domain.Entities
         public class Product
         {
             public int Id { get; set; }
-            public string Nome { get; set; }
-            public string Descricao { get; set; }
-            public decimal Preco { get; set; }
-            public int QuantidadeEstoque { get; set; }
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public decimal Price { get; set; }
+            public int QuantityStock { get; set; }
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Dapper;
+﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using ProjectStore.Domain.Entities;
 using ProjectStore.Domain.Interfaces;
@@ -9,7 +6,7 @@ using ProjectStore.Domain.Interfaces;
 namespace ProjectStore.Infrastructure.Repositories
 {
     public class ClientRepository : IClientRepository
-    {
+   {        
         private readonly string _connectionString;
 
         public ClientRepository(string connectionString)
@@ -18,7 +15,7 @@ namespace ProjectStore.Infrastructure.Repositories
         }
 
         private SqlConnection CreateConnection()
-            => new SqlConnection(_connectionString);
+            => new SqlConnection(_connectionString);        
 
         public async Task<IEnumerable<Client>> GetAllAsync()
         {
@@ -29,7 +26,7 @@ namespace ProjectStore.Infrastructure.Repositories
         public async Task<Client> GetByIdAsync(int id)
         {
             using var connection = CreateConnection();
-            return await connection.QueryFirstOrDefaultAsync<Client>(
+            return await connection.QueryFirstAsync<Client>(
                 "SELECT * FROM Clients WHERE Id = @Id",
                 new { Id = id }
             );

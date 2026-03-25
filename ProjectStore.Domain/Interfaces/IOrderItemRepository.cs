@@ -8,8 +8,8 @@ namespace ProjectStore.Domain.Interfaces
 {
     public interface IOrderItemRepository
     {
-        Task<IEnumerable<OrderItem>> GetOrderItemsAsync(int pedidoId);
+        Task<IEnumerable<OrderItem>> GetOrderItemsAsync(int orderId);
         Task CreateAsync(OrderItem item);
-        Task DeleteByPedidoIdAsync(int pedidoId);
+        Task DeleteByPedidoIdAsync(int orderId);
     }
 }
