@@ -1,5 +1,4 @@
 ﻿using ProjectStore.Domain.Entities;
-using ProjectStore.Domain.Entities.ProjectStore.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
