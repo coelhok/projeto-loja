@@ -1,4 +1,51 @@
-﻿@page
-@model ProjectStore.Views.client.indexModel
+﻿@model IEnumerable<ProjectStore.Domain.Entities.Client>
+
 @{
+    ViewData["Title"] = "Clients";
 }
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between">
+        <h2 class="page-title">Clients</h2>
+        <a href="/Client/Create" class="btn btn-primary">+ New Client</a>
+    </div>
+
+
+    <div class="card">
+        <div class="card-header">
+            <input type="text" id="searchInput" class="form-control" placeholder="search by email or name">
+        </div>
+
+        <div>
+            <table class="table table-striped mb-0" id="clientTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Registration Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var client in Model)
+                    {
+                        <tr>
+                            <td>@client.Name</td>
+                            <td>@client.Email</td>
+                            <td>@client.Phone</td>
+                            <td>@client.RegistrationDate.ToString("dd/MM/yyyy")</td>
+                            <td>
+                                <a href="/Client/Edit/@client.Id" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="/Client/Delete/@client.Id" method="post" style="display:inline-block;">
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this client?')">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
