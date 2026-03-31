@@ -1,23 +1,23 @@
-﻿@model IEnumerable<ProjectStore.Domain.Entities.Client>
+﻿@model IEnumerable<Client>
 
 @{
     ViewData["Title"] = "Clients";
 }
 
+<link rel="stylesheet" href="~/css/client.css" />
+
 <div class="container mt-4">
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="page-title">Clients</h2>
         <a href="/Client/Create" class="btn btn-primary">+ New Client</a>
     </div>
 
-
     <div class="card">
         <div class="card-header">
-            <input type="text" id="searchInput" class="form-control" placeholder="search by email or name">
+            <input type="text" id="searchInput" class="search-box form-control" placeholder="🔍 Search by name or email...">
         </div>
-
-        <div>
-            <table class="table table-striped mb-0" id="clientTable">
+        <div class="card-body p-0">
+            <table class="table table-striped mb-0 client-table" id="clientTable">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -37,8 +37,11 @@
                             <td>@client.RegistrationDate.ToString("dd/MM/yyyy")</td>
                             <td>
                                 <a href="/Client/Edit/@client.Id" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="/Client/Delete/@client.Id" method="post" style="display:inline-block;">
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this client?')">Delete</button>
+                                <form action="/Client/Delete/@client.Id" method="post" style="display:inline">
+                                    <button type="submit" class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Delete this client?')">
+                                        Delete
+                                    </button>
                                 </form>
                             </td>
                         </tr>
@@ -47,5 +50,15 @@
             </table>
         </div>
     </div>
-
 </div>
+
+    @section Scripts {
+        <script>
+            $("#searchInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#clientTable tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        </script>
+    }
