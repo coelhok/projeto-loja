@@ -1,0 +1,40 @@
+﻿@model Client
+
+@{
+    ViewData["Title"] = "Edit Client";
+}
+
+<link rel="stylesheet" href="~/css/client.css" />
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="page-title">Edit Client</h2>
+        <a href="/Client" class="btn btn-secondary">← Back</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span>Update client details</span>
+        </div>
+        <div class="card-body">
+            <form action="/Client/Edit/@Model.Id" method="post" class="client-form">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" name="Name" value="@Model.Name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="Email" value="@Model.Email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone</label>
+                    <input type="text" name="Phone" value="@Model.Phone" class="form-control" required>
+                </div>
+                <input type="hidden" name="RegistrationDate" value="@Model.RegistrationDate" />
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a href="/Client" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
